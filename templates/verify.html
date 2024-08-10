@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Identity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .message {
+            margin-top: 50px;
+            font-size: 24px;
+        }
+        .confirm-input {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function validateInput() {
+            var input = document.getElementById("confirmInput").value.toLowerCase();
+            if (input === "yes" || input === "no") {
+                // Redirect to the appropriate page
+                if (input === "yes") {
+                    window.location.href = "/ask_verify_password";
+                } else {
+                    window.location.href = "/recognize";
+                }
+            } else {
+                alert("Please type 'yes' or 'no'!");
+            }
+            return false; // Prevent form submission
+        }
+    </script>
+</head>
+<body>
+    <div class="message">
+        Are you {{ name.capitalize() }}? Type "yes" or "no".
+    </div>
+    <form onsubmit="return validateInput()">
+        <input type="hidden" name="name" value="{{ name }}">
+        <input type="text" id="confirmInput" placeholder="Type yes or no" class="confirm-input" required>
+        <input type="submit" value="Submit" class="submit-button">
+    </form>
+</body>
+</html>
