@@ -1,4 +1,4 @@
-# Secure Lab Access Using Face Recognition
+# Secure-Web-Access-using-password-with-face-recognition
 
 ## Overview
 This project leverages face recognition technology to enhance lab security, integrating HTML, CSS, Java, and Machine Learning (ML) for a robust access control system. By replacing traditional methods with biometric authentication, the project addresses vulnerabilities like stolen credentials, ensuring only authorized personnel can access the lab.
